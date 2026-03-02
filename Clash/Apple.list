@@ -29,3 +29,33 @@ IP-CIDR,144.178.48.0/20,no-resolve
 IP-CIDR,192.35.50.0/24,no-resolve
 IP-CIDR,198.183.17.0/24,no-resolve
 IP-CIDR,205.180.175.0/24,no-resolve
+#APPLE AI
+DOMAIN-SUFFIX , smoot.apple.com                           # 搜索服务：Siri/Spotlight/Lookup/Safari/News/信息/音乐（TCP 443）
+DOMAIN        , guzzoni.apple.com                         # Siri 与听写（TCP 443）
+
+DOMAIN        , gspe1-ssl.ls.apple.com
+DOMAIN        , apple-relay.mask.apple-dns.net
+
+DOMAIN        , apple-relay.fastly-edge.com               # Apple Intelligence Extensions（TCP/UDP 443）
+DOMAIN        , apple-relay.apple.com                     # Private Cloud Compute（PCC）（TCP/UDP 443）
+DOMAIN        , apple-relay.cloudflare.com                # Private Cloud Compute（PCC）（TCP/UDP 443）
+DOMAIN        , cp4.cloudflare.com                        # Private Cloud Compute（PCC）（TCP/UDP 443）
+'+.smoot.apple.com'                           # 搜索服务：Siri/Spotlight/Lookup/Safari/News/信息/音乐（TCP 443）
+'guzzoni.apple.com'                           # Siri 与听写（TCP 443）
+'gspe1-ssl.ls.apple.com'
+'apple-relay.mask.apple-dns.net'
+
+'apple-relay.fastly-edge.com'                 # Apple Intelligence Extensions（TCP/UDP 443）
+'apple-relay.apple.com'                       # Private Cloud Compute（PCC）（TCP/UDP 443）
+'apple-relay.cloudflare.com'                  # Private Cloud Compute（PCC）（TCP/UDP 443）
+'cp4.cloudflare.com'                          # Private Cloud Compute（PCC）（TCP/UDP 443）
+DOMAIN-SUFFIX , smoot.apple.com                           # 搜索服务：Siri/Spotlight/Lookup/Safari/News/信息/音乐（TCP 443）
+DOMAIN        , guzzoni.apple.com                         # Siri 与听写（TCP 443）
+
+DOMAIN        , gspe1-ssl.ls.apple.com
+DOMAIN        , apple-relay.mask.apple-dns.net
+
+DOMAIN        , apple-relay.fastly-edge.com               # Apple Intelligence Extensions（TCP/UDP 443）
+DOMAIN        , apple-relay.apple.com                     # Private Cloud Compute（PCC）（TCP/UDP 443）
+DOMAIN        , apple-relay.cloudflare.com                # Private Cloud Compute（PCC）（TCP/UDP 443）
+DOMAIN        , cp4.cloudflare.com                        # Private Cloud Compute（PCC）（TCP/UDP 443）
