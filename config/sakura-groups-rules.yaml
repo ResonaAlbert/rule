@@ -1,0 +1,147 @@
+# ============================================================
+# sakura-groups-rules.yaml  ·  策略组 + 规则集声明 + 规则匹配
+# 托管于: https://github.com/YOUR_NAME/YOUR_REPO/raw/main/config/sakura-groups-rules.yaml
+# 通过主配置的 config-providers 自动合并，每 24h 更新
+# 修改后直接 push，无需动 sakura-main.yaml
+# ============================================================
+
+# ── YAML 锚点（rule-providers 内部复用）──────────────────────
+rule-anchor:
+  ip:     &ip     {type: http, interval: 86400, behavior: ipcidr,    format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain,    format: mrs}
+  class:  &class  {type: http, interval: 86400, behavior: classical, format: text}
+
+# ── 策略组 ───────────────────────────────────────────────────
+proxy-groups:
+
+  # 手动选择组
+  - {name: 🚀 default,   type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🐟 fish,      type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🎯 Direct,    type: select, proxies: [DirectMode, 🚀 default]}
+  - {name: 🤖 AI,        type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🍀 Google,    type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🍎 Apple,     type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🪟 Microsoft, type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 📲 Telegram,  type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: ✈️ Speedtest, type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 💶 PayPal,    type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 💴 Trading,   type: select, proxies: [🇰🇷🇯🇵🇹🇼 MultiAuto, 🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🌐 alpha, DirectMode]}
+  - {name: 🇯🇵 Private,  type: select, proxies: [🇯🇵🔯 JP_Fallback, 🇸🇬🔯 SG_Fallback, 🇭🇰🔯 HK_Fallback, 🇺🇲🔯 USA_Fallback, 🇰🇷🇯🇵🇹🇼 MultiAuto, 🌐 alpha, DirectMode]}
+  - {name: 👨🏿‍💻 Download, type: select, include-all: true}
+  - {name: 🚀 EH,        type: select, include-all: true}
+
+  # 自动测速组（fallback）
+  - {name: 🇭🇰🔯 HK_Fallback,  type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 🇯🇵🔯 JP_Fallback,  type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"}
+  - {name: 🇸🇬🔯 SG_Fallback,  type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|SG_|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"}
+  - {name: 🇺🇲🔯 USA_Fallback, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$"}
+
+  # 自动测速组（url-test）
+  - {name: 🇭🇰♻️ HK_Auto,      type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 🇯🇵♻️ JP_Auto,      type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$"}
+  - {name: 🇸🇬♻️ SG_Auto,      type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|SG_|SG|Singapore))^((?!(港|台|韩|日|美)).)*$"}
+  - {name: 🇺🇲♻️ USA_Auto,     type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name: 🇰🇷🇯🇵🇹🇼 MultiAuto, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(韩|KR|Korea|日|JP|Japan|台|TW|Taiwan))^((?!(港|新|美|深)).)*$"}
+  - {name: ♻️ AUTO,             type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "^((?!(DirectMode)).)*$"}
+
+  # 全节点选择
+  - {name: 🌐 ALL,   type: select, include-all: true}
+  - {name: 🌐 alpha, type: select, include-all: true}
+  - {name: 🌐 beta,  type: select, include-all: true}
+
+# ── 规则集声明 ───────────────────────────────────────────────
+rule-providers:
+
+  # 自有规则（本仓库维护）
+  proxylite:        { <<: *class,  url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/proxy.list"}
+  proxyliteJP:      { <<: *class,  url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/JPproxy.list"}
+  ai:               { <<: *domain, url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/Clash/Ruleset/AiDomain.list"}
+  cn_domain:        { <<: *domain, url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/Clash/DirectMode.list"}
+  cn_ip:            { <<: *ip,     url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/Clash/cncidr.list"}
+  Developer:        { <<: *domain, url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/Clash/Ruleset/Developer.list"}
+  Download:         { <<: *domain, url: "https://raw.githubusercontent.com/ResonaAlbert/rule/refs/heads/main/Clash/Ruleset/Download.list"}
+
+  # MetaCubeX 上游规则
+  youtube_domain:   { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  google_domain:    { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
+  google_ip:        { <<: *ip,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  telegram_domain:  { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
+  telegram_ip:      { <<: *ip,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  netflix_domain:   { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
+  netflix_ip:       { <<: *ip,     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
+  paypal_domain:    { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
+  onedrive_domain:  { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
+  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
+  apple_domain:     { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple-cn.mrs"}
+  speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
+  tiktok_domain:    { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
+  gfw_domain:       { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
+  geolocation-!cn:  { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
+
+  # szkane 规则集
+  LocalAreaNetwork: { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/LocalAreaNetwork.list"}
+  UnBan:            { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/UnBan.list"}
+  Bilibili:         { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/Ruleset/Bilibili.list"}
+  BilibiliHMT:      { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/Ruleset/BilibiliHMT.list"}
+  ChinaMedia:       { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/ChinaMedia.list"}
+  ChinaDomain:      { <<: *domain, url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/ChinaDomain.list"}
+  ChinaCompanyIp:   { <<: *ip,     url: "https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/ChinaCompanyIp.list"}
+
+# ── 规则匹配（顺序敏感，首次命中即停止）─────────────────────
+rules:
+
+  # AI 服务
+  - RULE-SET,ai,🤖 AI,no-resolve
+
+  # Apple
+  - RULE-SET,apple_domain,🍎 Apple
+
+  # Google / YouTube
+  - RULE-SET,youtube_domain,🍀 Google
+  - RULE-SET,google_domain,🍀 Google
+  - RULE-SET,google_ip,🍀 Google,no-resolve
+
+  # Microsoft / OneDrive
+  - RULE-SET,onedrive_domain,🪟 Microsoft
+  - RULE-SET,microsoft_domain,🪟 Microsoft
+
+  # Trading & 私有 JP
+  - RULE-SET,proxylite,💴 Trading
+  - RULE-SET,proxyliteJP,🇯🇵 Private
+
+  # EH（硬编码域名）
+  - DOMAIN-SUFFIX,e-hentai.org,🚀 EH
+  - DOMAIN-SUFFIX,exhentai.org,🚀 EH
+
+  # 其他服务
+  - RULE-SET,speedtest_domain,✈️ Speedtest
+  - RULE-SET,telegram_domain,📲 Telegram
+  - RULE-SET,paypal_domain,💶 PayPal
+
+  # 代理（Netflix / GFW / 非CN）
+  - RULE-SET,netflix_domain,🚀 default
+  - RULE-SET,gfw_domain,🚀 default
+  - RULE-SET,geolocation-!cn,🚀 default
+
+  # Telegram IP
+  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
+
+  # 直连（国内域名 / IP / 局域网 / 白名单 / 国内媒体）
+  - RULE-SET,cn_domain,🎯 Direct
+  - RULE-SET,cn_ip,🎯 Direct
+  - RULE-SET,LocalAreaNetwork,🎯 Direct
+  - RULE-SET,UnBan,🎯 Direct
+  - RULE-SET,Bilibili,🎯 Direct
+  - RULE-SET,BilibiliHMT,🎯 Direct
+  - RULE-SET,ChinaMedia,🎯 Direct
+  - RULE-SET,ChinaDomain,🎯 Direct
+  - RULE-SET,ChinaCompanyIp,🎯 Direct
+
+  # 开发者工具 / 下载
+  - RULE-SET,Developer,👨🏿‍💻 Download
+  - RULE-SET,Download,👨🏿‍💻 Download
+  - IP-CIDR,0.0.0.0/0,👨🏿‍💻 Download,no-resolve
+  - IP-CIDR6,::/0,👨🏿‍💻 Download,no-resolve
+
+  # 兜底
+  - MATCH,🐟 fish
