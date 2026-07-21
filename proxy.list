@@ -6,6 +6,9 @@ DOMAIN-SUFFIX,trading212.com
 DOMAIN-KEYWORD,blackbull
 DOMAIN-KEYWORD,tradingview
 DOMAIN-KEYWORD,icmarkets
+DOMAIN-SUFFIX,ic.com
+DOMAIN-KEYWORD,ctrader
+DOMAIN-SUFFIX,icm-cn-client-area.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,1e100
