@@ -8,6 +8,9 @@ DOMAIN-KEYWORD,tradingview
 DOMAIN-KEYWORD,icmarkets
 DOMAIN-SUFFIX,ic.com
 DOMAIN-KEYWORD,ctrader
+DOMAIN-KEYWORD,metatrader4
+DOMAIN-KEYWORD,metatrader5
+DOMAIN-KEYWORD,metatrader
 DOMAIN-SUFFIX,icm-cn-client-area.com
 
 # 域名关键字匹配
