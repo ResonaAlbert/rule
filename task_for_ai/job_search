@@ -1,183 +1,153 @@
-
 ```markdown
-# 求职搜索智能体任务文档
-> 岗位：机械工程师（汽车热管理 / CFM）｜地区：德国 + 意大利｜合同：本地雇佣 + 欧盟蓝卡
+# 求职搜索智能体任务文档 (高录取率/去仿真/匿名版/含华人平台)
+> 岗位：机械工程师（测试/验证/应用/项目/现场支持）｜地区：德国 + 意大利｜合同：当地合同 + 工签/蓝卡担保
 
 ---
 
 ## 0. 执行元数据
 ```yaml
-task_name: EEA_Mechanical_Engineer_Job_Search
-agent_role: 高级招聘搜索与匹配助手
+task_name: EEA_Mechanical_Engineer_Job_Search_Anonymous_v2
+agent_role: 高级招聘搜索与匹配助手（聚焦高录取率、签证可行性与华人渠道）
 execution_mode: auto          # auto=有联网工具则直接搜；manual=只输出可手动执行的查询
 language_priority: [English, German, Italian, Chinese]
 refresh_focus: 最新发布的岗位（优先近 30 天）
+strategy_shift: 
+  1. 研发/仿真，测试验证、应用工程、项目交付与现场技术支持（FAE）。
+  2. 签证要求放宽：接受欧盟蓝卡（EU Blue Card）或普通工作签证（Work Visa / Work Permit），只要提供当地合同并愿意担保即可。
+  3. 渠道下沉：大量引入德国和意大利当地的“华人找工作平台”，利用中文优势降维打击，大幅提高录取率。
 ```
 
 ## 1. 任务目标
-为候选人 *XXXXX** 在 **德国** 和 **意大利** 寻找 **机械工程师** 相关岗位，目标为 **欧洲本地雇佣合同（Local Hire）并可办理欧盟蓝卡（EU Blue Card）**。优先匹配汽车、热管理/散热、仿真方向，并优先推荐中企出海或愿意为华人工程师担保签证的雇主。
+为**匿名候选人**在 **德国** 和 **意大利** 寻找机械相关岗位。为了**最大化录取概率**，搜索范围从纯研发设计拓宽至**测试验证、应用工程、项目工程、质量以及现场技术支持**。除了主流招聘网站，必须**深度挖掘当地华人社区、华人分类信息网及中企出海专属平台**。目标为**欧洲当地雇佣合同（Local Contract）**，且雇主愿意提供**工作签证担保（Work Visa / Work Permit）或欧盟蓝卡**。
 
-## 2. 候选人档案（结构化）
+## 2. 候选人档案（结构化 - 匿名化 / 弱化仿真 / 强化工程落地）
 ```yaml
-name: XXXXX
-email: XXXXX
-linkedin: XXXX
-phone: XXXXX
-current_location: Shenzhen, China
+candidate_profile: Anonymous_Mechanical_Engineer
+target_locations: Germany, Italy
+current_location: Currently based in China (Willing to relocate to DE/IT)
 
-current_role: Senior Mechanical Engineer @ Johnson Electric, China (2025.2 - Present)
-previous_role: Simulation Specialist @ VHIT Bosch, Italia (2024.7 - 2024.12)
+core_strengths:
+  - 汽车散热风扇模块(CFM)端到端项目交付（从概念到SOP量产）
+  - Design Verification (DV) 测试验证与原型制作 (Prototype builds)
+  - DFMEA、Change Control 变更管理、跨部门技术协调
+  - 机械零部件设计基础（压铸件、塑料件、冲压件）
+  - 解决现场技术问题与根本原因分析 (Root cause analysis)
+  - 油泵性能测试与HIL测试系统开发经验
 
 education:
-  - Master of Aeronautics, Politecnico di Milano (2021 - 2024)
-  - Bachelor of Aeronautics, Beijing Institute of Technology (2016 - 2020)
-
-core_expertise:
-  - Cooling Fan Module (CFM) 端到端开发（概念设计→DV→量产→SOP）
-  - Design Verification (DV)、DFMEA、Change Control
-  - 仿真：Siemens Amesim、ABAQUS、MATLAB
-  - 机械设计：Siemens NX、Teamcenter PLM
-  - 零件类型：die-cast、plastic、stamped、electrical interface
-  - 跨职能协作：CAE、供应商、制造、质量、OEM 客户
-
-key_achievement: 2025 Johnson Electric Award —— 主导 CFM 项目，被 Volkswagen、BMW、BYD 采用
+  - Master of Aeronautics, Politecnico di Milano (米兰理工硕士 - 意大利求职核心优势)
+  - Bachelor of Aeronautics, Beijing Institute of Technology (北理本科)
 
 languages:
-  chinese: Native
-  english: C1
-  german: B2
-  italian: A2
+  chinese: Native (核心卖点：中企出海/华人企业的完美对接人)
+  english: C1 (工作语言)
+  german: B2 (可应对德国日常与基础技术沟通)
+  italian: A2 (基础，意大利求职主要依赖中英双语环境)
+
+# 注意：候选人已较长时间未从事纯仿真工作，搜索时请避开纯CAE/仿真岗位。
 ```
 
-### 语言策略（重要）
-- 德国（德语 B2）：可广泛投递本土企业 + 中企。
-- 意大利（意大利语 A2）：**优先中企出海、跨国大厂（英文环境）、米兰地区**；放大"米兰理工硕士"学历优势。
+## 3. 目标岗位与约束（降维打击策略）
+**高录取率岗位池（重点搜索）**
+1. **Test / Validation Engineer (测试/验证工程师)**
+2. **Application Engineer (应用工程师)**
+3. **Project Engineer (项目工程师)**
+4. **Field Service Engineer / FAE (现场服务/技术支持/售后)**
+5. **Quality / SQE Engineer (质量/供应商质量工程师)**
 
-## 3. 目标岗位与约束
-**硬性要求（必须满足）**
+**硬性约束**
 - 国家：德国 或 意大利
-- 职能：机械 / 汽车 / 散热热管理 / 仿真 / 验证 相关工程师
-- 合同：本地雇佣合同，雇主愿意担保签证 / 欧盟蓝卡
-
-**加分项（软性偏好）**
-- 中企出海或华人雇主（发挥中文优势）
-- 散热/热管理/电机/泵方向（与 CFM 经验直接对口）
-- 明确写 "Visa Sponsorship / Blue Card / Relocation Support"
-- 城市：德（München / Stuttgart / Sindelfingen / Frankfurt），意（Milano / Torino）
+- 合同性质：当地雇佣合同（Local Contract）
+- 签证支持：雇主愿意担保 **工作签证 (Work Visa / Work Permit)** 或 **欧盟蓝卡 (EU Blue Card)** 均可。
 
 **排除项**
-- 纯餐饮/零售/行政等非技术岗
-- 要求已有当地永居且不担保签证的岗位
-- 明确不招非欧盟候选人的岗位
+- 明确要求“必须已有当地永居/国籍”且绝对不提供签证担保的岗位。
 
-## 4. 多语言关键词库
-| 含义 | English | Deutsch 🇩🇪 | Italiano 🇮🇹 |
-|---|---|---|---|
-| 机械工程师 | Mechanical Engineer | Maschinenbauingenieur / Entwicklungsingenieur | Ingegnere Meccanico |
-| 研发工程师 | Development Engineer | Entwicklungsingenieur / R&D Engineer | Ingegnere di Sviluppo |
-| 设计工程师 | Design Engineer | Konstrukteur | Progettista Meccanico |
-| 验证工程师 | Validation Engineer | Prüfingenieur / Versuchsingenieur | Ingegnere di Validazione / Collaudo |
-| 仿真工程师 | Simulation Engineer | Simulationsingenieur / Berechnungsingenieur | Ingegnere di Simulazione |
-| 散热/热管理 | Thermal Management / Cooling | Kühlung / Thermomanagement | Raffreddamento / Gestione Termica |
-| 风扇 | Cooling Fan | Lüfter / Kühllüfter | Ventola / Ventilatore |
-| 电机 | E-Motor | Elektromotor | Motore Elettrico |
-| 泵 | Pump | Pumpe | Pompa |
-| 汽车 | Automotive | Automotive / Automobil | Automotive / Automobilistico |
-| DFMEA | DFMEA | DFMEA | DFMEA |
-| 中文 | Chinese / Mandarin | Chinesisch / Mandarin | Cinese / Mandarino |
+## 4. 多语言关键词库（去仿真，增应用/测试/签证/华人圈）
+| 含义 | English | Deutsch 🇩🇪 | Italiano 🇮🇹 | 中文 (用于华人平台) |
+|---|---|---|---|---|
+| 签证担保 | Visa Sponsorship / Work Permit | Visum / Arbeitserlaubnis | Visto / Permesso di Lavoro | 工签 / 蓝卡 / 身份担保 |
+| 测试/验证 | Test / Validation | Testingenieur / Versuchsingenieur | Ingegnere di Collaudo | 测试 / 验证 / 实验 |
+| 应用/现场 | Application / Field Service | Applikationsingenieur / Servicetechniker | Ingegnere di Applicazione / Assistenza | 售后 / 技术支持 / FAE / 现场 |
+| 机械/设备 | Mechanical / Equipment | Mechanik / Maschinenbau | Meccanico / Macchinari | 机械 / 设备 / 自动化 |
+| 项目/质量 | Project / Quality | Projektingenieur / Qualitätsingenieur | Ingegnere di Progetto / Qualità | 项目 / 质量 / SQE |
 
 ## 5. 搜索执行计划
 ### 5.1 通用布尔搜索串（LinkedIn / Indeed / StepStone 可用）
-```
-# 德国-机械+汽车+中文（最强组合）
-("Mechanical Engineer" OR "Entwicklungsingenieur" OR "Maschinenbauingenieur" OR "Development Engineer") AND (Automotive OR Automobil) AND (Chinese OR Mandarin OR Chinesisch)
+```text
+# 策略A：中企出海/跨国对接 + 签证放宽（主流平台最强杀手锏）
+("Mechanical Engineer" OR "Project Engineer" OR "Application Engineer" OR "Field Service") AND (Automotive OR Manufacturing OR Equipment) AND (Chinese OR Mandarin) AND ("Visa Sponsorship" OR "Work Permit" OR "Relocation" OR "Blue Card")
 
-# 德国-散热/热管理（CFM 直接对口）
-("Mechanical Engineer" OR "Entwicklungsingenieur") AND ("Thermal Management" OR Kühlung OR Lüfter OR "Cooling Fan" OR Thermomanagement)
-
-# 德国-仿真（Amesim/ABAQUS 优势）
-("Simulation Engineer" OR "Simulationsingenieur") AND (Amesim OR ABAQUS OR CAE OR FEM)
-
-# 意大利-机械+中文
-("Ingegnere Meccanico" OR "Mechanical Engineer" OR "Ingegnere di Sviluppo") AND (Automotive OR Automobilistico) AND (Cinese OR Mandarin OR Chinese)
-
-# 意大利-散热/电机/热管理
-("Ingegnere Meccanico" OR "Mechanical Engineer") AND (Raffreddamento OR Ventola OR "Motore Elettrico" OR "Thermal Management" OR "E-motor")
-
-# 意大利-仿真
-("Ingegnere Meccanico" OR "Mechanical Engineer") AND (Simulazione OR Amesim OR ABAQUS OR CFD OR FEM)
+# 策略B：测试/验证/现场支持方向（发挥DV经验，避开设计内卷）
+("Test Engineer" OR "Validation Engineer" OR "Field Service Engineer" OR "FAE" OR "Testingenieur" OR "Servicetechniker" OR "Ingegnere di Collaudo") AND (Mechanical OR Automotive OR Equipment)
 ```
 
-### 5.2 各平台执行清单
-| 平台 | 国家 | 查询/动作 |
+### 5.2 各平台执行清单（含大量华人当地找工作平台）
+
+#### 🌐 主流招聘平台 (Mainstream)
+| 平台 | 国家 | 查询/动作重点 |
 |---|---|---|
-| LinkedIn | 德/意 | 用 5.1 布尔串 + Location 过滤，开启 Open to Work |
-| Indeed.de | 德 | `Maschinenbauingenieur Automotive Chinesisch`、`Entwicklungsingenieur Lüfter` |
-| Indeed.it | 意 | `Ingegnere Meccanico Automotive Cinese`、`Ingegnere Simulazione Amesim` |
-| StepStone.de | 德 | `Maschinenbauingenieur Chinese`、`Entwicklungsingenieur Automotive` |
-| XING | 德 | 同 StepStone（隐形冠军聚集地） |
-| InfoJobs.it | 意 | `Ingegnere Meccanico`、`Progettista Meccanico Automotive` |
-| 猎聘 | 中企出海 | `意大利 机械 研发`、`德国 机械工程师 外派`、`出海 机械 欧洲`、`Base 意大利` |
-| Work-in-de.de | 德 | 浏览 + 订阅（在德华人中企岗） |
-| dolc.de 萍聚 | 德 | 搜 `机械` `工程师` `研发` `汽车` `仿真` |
-| 华人街/华人网 | 意 | 搜 `机械工程师` `工程师` |
-| cineseitalia / coscc.it | 意 | 搜 `技术支持工程师` `机械` `Ingegnere Meccanico` |
+| LinkedIn | 德/意 | 用 5.1 策略A，寻找中企出海的 Application/Project/Service 岗，关注提及 Relocation/Visa 的帖子。 |
+| Indeed.de | 德 | `Testingenieur Automotive`、`Applikationsingenieur Chinesisch`、`Servicetechniker Mechanik Visum` |
+| Indeed.it | 意 | `Ingegnere di Collaudo`、`Field Service Engineer Chinese`、`Ingegnere di Applicazione Visto` |
+| StepStone.de | 德 | `Projektingenieur Maschinenbau`、`Versuchsingenieur` |
 
-### 5.3 优先雇主名单（直接定向投递）
-- 🇩🇪 德国：Mahle（热管理，最对口）、Valeo、HELLA、Schaeffler、Bosch；中企：宁德时代、德赛西威、国轩高科、比亚迪、蔚来、远景、三一、徐工、均胜电子
-- 🇮🇹 意大利：Marelli（热管理，最对口）、Brembo、Comau、Stellantis、Maserati、Alfa Romeo；中企：海尔、美的、三一、徐工、潍柴(凯傲/林德)、TP-Link、上汽/吉利（米兰设计中心）
+#### 🇩🇪 德国华人/中企专属平台 (高录取率/语言包容)
+| 平台 | 属性 | 搜索/挖掘策略 |
+|---|---|---|
+| **Work-in-de.de** | 在德华人三语求职平台 | 专门针对中企出海和本地华人企业。直接浏览机械/测试/项目类岗位，此类岗位默认签当地合同且极易录取。 |
+| **萍聚社区 (Dolc.de)** | 德国最大华人论坛 | 进入“招聘求职”版块。搜索 `机械`、`工程师`、`售后`、`设备`。常有华人机械贸易公司、设备安装公司发布技术岗，对德语要求宽容，老板通常愿意帮忙办工签。 |
+| **全德华人学者论坛 (GCS)** | 高学历华人圈 | 关注其微信公众号或求职网，中企在德研发/测试中心（如宁德时代、蔚来、各大汽配中企）常在此发布内推和直招信息。 |
+| **GCGI (全德华人汽车工程师协会)** | 专业协会渠道 | 搜索其公众号活动或社群，获取德国汽车/机械圈华人高管的内推机会。 |
+
+#### 🇮🇹 意大利华人/中企专属平台 (高录取率/语言包容)
+| 平台 | 属性 | 搜索/挖掘策略 |
+|---|---|---|
+| **华人街 (Huarenjie.com) / 意大利华人网 (Huarenwang.com)** | 意大利最大华人分类信息网 | 进入“招聘求职”版块。搜索 `机械`、`设备安装`、`售后`、`技术支持`、`工程师`。大量华人老板开的自动化设备代理、贸易、机械厂在此招人，**极易拿Offer并办普通工签 (Permesso di Lavoro)**。 |
+| **奋斗在意大利 (Cineseitalia.com)** | 老牌华人门户 | 关注其招聘版块。常有中国新能源/设备出海企业（如逆变器、储能、光伏支架）发布意大利区 FAE/技术支持/项目交付岗。 |
+| **COSCC.it (意大利海外留学生求职社区) / 全意学联** | 留学生/中企直招渠道 | 中企在意大利招正规工程师（签当地合同办工签）的核心渠道。关注其公众号的秋招/春招联合招聘会（如 TP-Link、海尔、各大机械出海企业常参会）。 |
+| **小红书 (定向搜索)** | 社交媒体野生直招 | 搜索关键词：`意大利 华人 机械 招聘`、`米兰 华人 工程师`、`德国 华人 售后 机械`。直接私信发帖的华人老板或HR， bypass 传统HR筛选，录取率极高。 |
 
 ## 6. 筛选与评分规则
-对每个候选岗位按 100 分制打分：
+对每个候选岗位按 100 分制打分（侧重易录取性与签证可行性）：
 
 | 维度 | 权重 | 评分要点 |
 |---|---|---|
-| 方向匹配 | 30 | 机械/汽车/散热/仿真相关度 |
-| 签证意愿 | 25 | 是否明确担保蓝卡/签证/Relocation |
-| 语言匹配 | 20 | 是否接受中/英/德/意组合 |
-| 雇主偏好 | 15 | 中企出海或本地大厂加分 |
-| 地点匹配 | 10 | 是否在目标城市/地区 |
+| 签证/门槛 | 35 | 明确担保工签/蓝卡；或为华人平台发布的岗位（对语言包容度高，极易录取且老板通常愿意协助办理普通工签）。 |
+| 方向匹配 | 30 | 属于测试、应用、项目、现场支持、质量（避开纯设计和仿真）。 |
+| 语言匹配 | 20 | 接受中英双语，或德语B2/意语A2即可胜任（华人平台岗位此项可满分）。 |
+| 行业匹配 | 15 | 汽车、热管理、机械设备、新能源出海、自动化设备代理。 |
 
 **决策逻辑**
-- 总分 ≥ 85：优先投递（重点推荐）
+- 总分 ≥ 85：优先投递（高录取率，重点推荐）
 - 总分 70–84：推荐投递
-- 总分 60–69：备选
-- 总分 < 60：不推荐
-- 无法确认签证意愿时，标注"需人工核实"，不得臆断。
+- 华人平台/小红书直招岗位：若方向匹配，直接列为“高优先级”，因为沟通成本极低且签证灵活性强。
 
 ## 7. 输出格式要求
 按以下表格输出，按总分降序排列：
 
-| # | 岗位名称 | 公司 | 国家/城市 | 方向匹配 | 签证意愿 | 总分 | 优先级 | 来源链接 | 备注 |
-|---|---|---|---|---|---|---|---|---|---|
+| # | 岗位名称 | 公司/来源 | 国家/城市 | 岗位类型 | 签证/语言友好度 | 总分 | 优先级 | 来源链接/平台 |
+|---|---|---|---|---|---|---|---|---|
 
 表格之后追加：
-1. **Top 3 重点推荐**：每个附一段 50 字内的推荐理由。
-2. **需人工核实清单**：列出签证/合同性质不明确的岗位。
+1. **Top 3 高录取率推荐**：每个附一段 50 字内的推荐理由（说明为什么好拿offer及签证可行性）。
+2. **华人平台定向挖掘建议**：基于当前搜索结果，给出 2-3 个具体华人社区/中企的定向投递建议。
 3. **下一步行动建议**：1–3 条。
 
 ## 8. 执行规则与约束
-1. 只输出真实、当前有效的岗位；不得编造岗位或公司。
-2. 信息不确定时必须标注"需人工核实"，不得虚构。
-3. 优先返回近 30 天发布的岗位。
-4. 若具备联网/浏览工具：直接执行 5.2 清单并抓取结果；若无：输出可手动复制的查询串清单。
-5. 同一岗位在多个平台重复出现时去重，保留信息最全的来源。
-6. 全程使用本档案中的候选人信息进行匹配，不得假设其他背景。
+1. **隐私保护**：全程不得输出或询问候选人的真实姓名、电话、邮箱、具体住址等 PII（个人敏感信息），统一使用“候选人 (The Candidate)”代称。
+2. 必须剔除所有要求纯 CAE/Simulation/Amesim/ABAQUS 的岗位。
+3. 优先挖掘“应用工程师”、“测试工程师”、“现场技术支持”这类对纯设计能力要求稍低、更看重项目协调和解决实际问题的岗位。
+4. 签证要求已放宽，只要 JD 中提到提供 Work Visa, Work Permit, Relocation support, Blue Card，或**发布在华人招聘平台（默认具备工签操作空间）** 均可纳入推荐。
+5. 不得编造岗位。
 
-## 9. 候选人一句话自我介绍（用于开场白/自荐）
+## 9. 候选人一句话自我介绍（用于开场白/自荐 - 匿名版）
 > 中文版：
-> 我是资深机械工程师，专注汽车散热风扇模块（CFM）开发与仿真（Amesim/ABAQUS），主导的项目被大众、宝马、比亚迪采用。中文母语、德语 B2、意大利语基础，米兰理工硕士，寻求德国或意大利的本地合同岗位，可办理欧盟蓝卡。
+> 您好，我是一名机械工程师，拥有米兰理工硕士学位及德国/意大利生活经验。擅长汽车热管理模块的测试验证(DV)、项目交付与跨部门技术协调，主导项目已获大众、宝马量产应用。中文母语、英语流利、德语B2。寻求测试、应用、项目或现场技术支持类岗位，期望签署当地合同，可接受工签或蓝卡担保。
 >
 > English:
-> Senior Mechanical Engineer specialized in automotive Cooling Fan Module (CFM) development and simulation (Amesim/ABAQUS), with projects adopted by Volkswagen, BMW and BYD. Native Chinese, German B2, Italian A2, Master's from Politecnico di Milano. Seeking a local-contract role in Germany or Italy, eligible for the EU Blue Card.
+> Hello, I am a Mechanical Engineer with a Master's from Politecnico di Milano and experience in Germany/Italy. Specialized in Design Verification (DV), project delivery, and cross-functional coordination for automotive thermal systems (projects adopted by VW, BMW). Native Chinese, fluent English, German B2. Seeking Test, Application, Project, or Field Service roles with a local contract (Work Visa or Blue Card sponsorship).
 
 ---
-**开始执行**：请先确认已读取本档案，然后执行「第 5 节搜索执行计划」，并按「第 7 节输出格式」返回结果。
+**开始执行**：请先确认已读取本档案及“降低难度/去仿真/放宽签证/匿名化/深挖华人平台”策略，然后执行「第 5 节搜索执行计划」，并按「第 7 节输出格式」返回结果。
 ```
-
----
-
-需要我再帮你做以下任意一项吗？
-1. 把这份文档拆成**德国版**和**意大利版**两个独立文件；
-2. 增加一个**「自动生成定制求职信」的子任务模块**（按岗位动态改写自荐信）；
-3. 帮你**实际跑一遍第 5 节清单**，现在就去各平台搜一批真实岗位并按表格返回。
