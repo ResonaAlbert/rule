@@ -15,14 +15,14 @@ refresh_focus: 最新发布的岗位（优先近 30 天）
 ```
 
 ## 1. 任务目标
-为候选人 **Ruiyang Zhang** 在 **德国** 和 **意大利** 寻找 **机械工程师** 相关岗位，目标为 **欧洲本地雇佣合同（Local Hire）并可办理欧盟蓝卡（EU Blue Card）**。优先匹配汽车、热管理/散热、仿真方向，并优先推荐中企出海或愿意为华人工程师担保签证的雇主。
+为候选人 *XXXXX** 在 **德国** 和 **意大利** 寻找 **机械工程师** 相关岗位，目标为 **欧洲本地雇佣合同（Local Hire）并可办理欧盟蓝卡（EU Blue Card）**。优先匹配汽车、热管理/散热、仿真方向，并优先推荐中企出海或愿意为华人工程师担保签证的雇主。
 
 ## 2. 候选人档案（结构化）
 ```yaml
-name: Ruiyang Zhang (Albert Zhang)
-email: albertdezhango@outlook.com
-linkedin: linkedin.com/in/ruiyang-zhang-144080276/
-phone: ["+49 15224905352", "+86 18811650860"]
+name: XXXXX
+email: XXXXX
+linkedin: XXXX
+phone: XXXXX
 current_location: Shenzhen, China
 
 current_role: Senior Mechanical Engineer @ Johnson Electric, China (2025.2 - Present)
