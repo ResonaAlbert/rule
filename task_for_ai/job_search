@@ -1,0 +1,183 @@
+
+```markdown
+# 求职搜索智能体任务文档
+> 岗位：机械工程师（汽车热管理 / CFM）｜地区：德国 + 意大利｜合同：本地雇佣 + 欧盟蓝卡
+
+---
+
+## 0. 执行元数据
+```yaml
+task_name: EEA_Mechanical_Engineer_Job_Search
+agent_role: 高级招聘搜索与匹配助手
+execution_mode: auto          # auto=有联网工具则直接搜；manual=只输出可手动执行的查询
+language_priority: [English, German, Italian, Chinese]
+refresh_focus: 最新发布的岗位（优先近 30 天）
+```
+
+## 1. 任务目标
+为候选人 **Ruiyang Zhang** 在 **德国** 和 **意大利** 寻找 **机械工程师** 相关岗位，目标为 **欧洲本地雇佣合同（Local Hire）并可办理欧盟蓝卡（EU Blue Card）**。优先匹配汽车、热管理/散热、仿真方向，并优先推荐中企出海或愿意为华人工程师担保签证的雇主。
+
+## 2. 候选人档案（结构化）
+```yaml
+name: Ruiyang Zhang (Albert Zhang)
+email: albertdezhango@outlook.com
+linkedin: linkedin.com/in/ruiyang-zhang-144080276/
+phone: ["+49 15224905352", "+86 18811650860"]
+current_location: Shenzhen, China
+
+current_role: Senior Mechanical Engineer @ Johnson Electric, China (2025.2 - Present)
+previous_role: Simulation Specialist @ VHIT Bosch, Italia (2024.7 - 2024.12)
+
+education:
+  - Master of Aeronautics, Politecnico di Milano (2021 - 2024)
+  - Bachelor of Aeronautics, Beijing Institute of Technology (2016 - 2020)
+
+core_expertise:
+  - Cooling Fan Module (CFM) 端到端开发（概念设计→DV→量产→SOP）
+  - Design Verification (DV)、DFMEA、Change Control
+  - 仿真：Siemens Amesim、ABAQUS、MATLAB
+  - 机械设计：Siemens NX、Teamcenter PLM
+  - 零件类型：die-cast、plastic、stamped、electrical interface
+  - 跨职能协作：CAE、供应商、制造、质量、OEM 客户
+
+key_achievement: 2025 Johnson Electric Award —— 主导 CFM 项目，被 Volkswagen、BMW、BYD 采用
+
+languages:
+  chinese: Native
+  english: C1
+  german: B2
+  italian: A2
+```
+
+### 语言策略（重要）
+- 德国（德语 B2）：可广泛投递本土企业 + 中企。
+- 意大利（意大利语 A2）：**优先中企出海、跨国大厂（英文环境）、米兰地区**；放大"米兰理工硕士"学历优势。
+
+## 3. 目标岗位与约束
+**硬性要求（必须满足）**
+- 国家：德国 或 意大利
+- 职能：机械 / 汽车 / 散热热管理 / 仿真 / 验证 相关工程师
+- 合同：本地雇佣合同，雇主愿意担保签证 / 欧盟蓝卡
+
+**加分项（软性偏好）**
+- 中企出海或华人雇主（发挥中文优势）
+- 散热/热管理/电机/泵方向（与 CFM 经验直接对口）
+- 明确写 "Visa Sponsorship / Blue Card / Relocation Support"
+- 城市：德（München / Stuttgart / Sindelfingen / Frankfurt），意（Milano / Torino）
+
+**排除项**
+- 纯餐饮/零售/行政等非技术岗
+- 要求已有当地永居且不担保签证的岗位
+- 明确不招非欧盟候选人的岗位
+
+## 4. 多语言关键词库
+| 含义 | English | Deutsch 🇩🇪 | Italiano 🇮🇹 |
+|---|---|---|---|
+| 机械工程师 | Mechanical Engineer | Maschinenbauingenieur / Entwicklungsingenieur | Ingegnere Meccanico |
+| 研发工程师 | Development Engineer | Entwicklungsingenieur / R&D Engineer | Ingegnere di Sviluppo |
+| 设计工程师 | Design Engineer | Konstrukteur | Progettista Meccanico |
+| 验证工程师 | Validation Engineer | Prüfingenieur / Versuchsingenieur | Ingegnere di Validazione / Collaudo |
+| 仿真工程师 | Simulation Engineer | Simulationsingenieur / Berechnungsingenieur | Ingegnere di Simulazione |
+| 散热/热管理 | Thermal Management / Cooling | Kühlung / Thermomanagement | Raffreddamento / Gestione Termica |
+| 风扇 | Cooling Fan | Lüfter / Kühllüfter | Ventola / Ventilatore |
+| 电机 | E-Motor | Elektromotor | Motore Elettrico |
+| 泵 | Pump | Pumpe | Pompa |
+| 汽车 | Automotive | Automotive / Automobil | Automotive / Automobilistico |
+| DFMEA | DFMEA | DFMEA | DFMEA |
+| 中文 | Chinese / Mandarin | Chinesisch / Mandarin | Cinese / Mandarino |
+
+## 5. 搜索执行计划
+### 5.1 通用布尔搜索串（LinkedIn / Indeed / StepStone 可用）
+```
+# 德国-机械+汽车+中文（最强组合）
+("Mechanical Engineer" OR "Entwicklungsingenieur" OR "Maschinenbauingenieur" OR "Development Engineer") AND (Automotive OR Automobil) AND (Chinese OR Mandarin OR Chinesisch)
+
+# 德国-散热/热管理（CFM 直接对口）
+("Mechanical Engineer" OR "Entwicklungsingenieur") AND ("Thermal Management" OR Kühlung OR Lüfter OR "Cooling Fan" OR Thermomanagement)
+
+# 德国-仿真（Amesim/ABAQUS 优势）
+("Simulation Engineer" OR "Simulationsingenieur") AND (Amesim OR ABAQUS OR CAE OR FEM)
+
+# 意大利-机械+中文
+("Ingegnere Meccanico" OR "Mechanical Engineer" OR "Ingegnere di Sviluppo") AND (Automotive OR Automobilistico) AND (Cinese OR Mandarin OR Chinese)
+
+# 意大利-散热/电机/热管理
+("Ingegnere Meccanico" OR "Mechanical Engineer") AND (Raffreddamento OR Ventola OR "Motore Elettrico" OR "Thermal Management" OR "E-motor")
+
+# 意大利-仿真
+("Ingegnere Meccanico" OR "Mechanical Engineer") AND (Simulazione OR Amesim OR ABAQUS OR CFD OR FEM)
+```
+
+### 5.2 各平台执行清单
+| 平台 | 国家 | 查询/动作 |
+|---|---|---|
+| LinkedIn | 德/意 | 用 5.1 布尔串 + Location 过滤，开启 Open to Work |
+| Indeed.de | 德 | `Maschinenbauingenieur Automotive Chinesisch`、`Entwicklungsingenieur Lüfter` |
+| Indeed.it | 意 | `Ingegnere Meccanico Automotive Cinese`、`Ingegnere Simulazione Amesim` |
+| StepStone.de | 德 | `Maschinenbauingenieur Chinese`、`Entwicklungsingenieur Automotive` |
+| XING | 德 | 同 StepStone（隐形冠军聚集地） |
+| InfoJobs.it | 意 | `Ingegnere Meccanico`、`Progettista Meccanico Automotive` |
+| 猎聘 | 中企出海 | `意大利 机械 研发`、`德国 机械工程师 外派`、`出海 机械 欧洲`、`Base 意大利` |
+| Work-in-de.de | 德 | 浏览 + 订阅（在德华人中企岗） |
+| dolc.de 萍聚 | 德 | 搜 `机械` `工程师` `研发` `汽车` `仿真` |
+| 华人街/华人网 | 意 | 搜 `机械工程师` `工程师` |
+| cineseitalia / coscc.it | 意 | 搜 `技术支持工程师` `机械` `Ingegnere Meccanico` |
+
+### 5.3 优先雇主名单（直接定向投递）
+- 🇩🇪 德国：Mahle（热管理，最对口）、Valeo、HELLA、Schaeffler、Bosch；中企：宁德时代、德赛西威、国轩高科、比亚迪、蔚来、远景、三一、徐工、均胜电子
+- 🇮🇹 意大利：Marelli（热管理，最对口）、Brembo、Comau、Stellantis、Maserati、Alfa Romeo；中企：海尔、美的、三一、徐工、潍柴(凯傲/林德)、TP-Link、上汽/吉利（米兰设计中心）
+
+## 6. 筛选与评分规则
+对每个候选岗位按 100 分制打分：
+
+| 维度 | 权重 | 评分要点 |
+|---|---|---|
+| 方向匹配 | 30 | 机械/汽车/散热/仿真相关度 |
+| 签证意愿 | 25 | 是否明确担保蓝卡/签证/Relocation |
+| 语言匹配 | 20 | 是否接受中/英/德/意组合 |
+| 雇主偏好 | 15 | 中企出海或本地大厂加分 |
+| 地点匹配 | 10 | 是否在目标城市/地区 |
+
+**决策逻辑**
+- 总分 ≥ 85：优先投递（重点推荐）
+- 总分 70–84：推荐投递
+- 总分 60–69：备选
+- 总分 < 60：不推荐
+- 无法确认签证意愿时，标注"需人工核实"，不得臆断。
+
+## 7. 输出格式要求
+按以下表格输出，按总分降序排列：
+
+| # | 岗位名称 | 公司 | 国家/城市 | 方向匹配 | 签证意愿 | 总分 | 优先级 | 来源链接 | 备注 |
+|---|---|---|---|---|---|---|---|---|---|
+
+表格之后追加：
+1. **Top 3 重点推荐**：每个附一段 50 字内的推荐理由。
+2. **需人工核实清单**：列出签证/合同性质不明确的岗位。
+3. **下一步行动建议**：1–3 条。
+
+## 8. 执行规则与约束
+1. 只输出真实、当前有效的岗位；不得编造岗位或公司。
+2. 信息不确定时必须标注"需人工核实"，不得虚构。
+3. 优先返回近 30 天发布的岗位。
+4. 若具备联网/浏览工具：直接执行 5.2 清单并抓取结果；若无：输出可手动复制的查询串清单。
+5. 同一岗位在多个平台重复出现时去重，保留信息最全的来源。
+6. 全程使用本档案中的候选人信息进行匹配，不得假设其他背景。
+
+## 9. 候选人一句话自我介绍（用于开场白/自荐）
+> 中文版：
+> 我是资深机械工程师，专注汽车散热风扇模块（CFM）开发与仿真（Amesim/ABAQUS），主导的项目被大众、宝马、比亚迪采用。中文母语、德语 B2、意大利语基础，米兰理工硕士，寻求德国或意大利的本地合同岗位，可办理欧盟蓝卡。
+>
+> English:
+> Senior Mechanical Engineer specialized in automotive Cooling Fan Module (CFM) development and simulation (Amesim/ABAQUS), with projects adopted by Volkswagen, BMW and BYD. Native Chinese, German B2, Italian A2, Master's from Politecnico di Milano. Seeking a local-contract role in Germany or Italy, eligible for the EU Blue Card.
+
+---
+**开始执行**：请先确认已读取本档案，然后执行「第 5 节搜索执行计划」，并按「第 7 节输出格式」返回结果。
+```
+
+---
+
+需要我再帮你做以下任意一项吗？
+1. 把这份文档拆成**德国版**和**意大利版**两个独立文件；
+2. 增加一个**「自动生成定制求职信」的子任务模块**（按岗位动态改写自荐信）；
+3. 帮你**实际跑一遍第 5 节清单**，现在就去各平台搜一批真实岗位并按表格返回。
