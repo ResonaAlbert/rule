@@ -1,0 +1,60 @@
+
+payload:
+  # European Union
+  - '+.eu'
+
+  # EU Member States
+  - '+.at'  # Austria
+  - '+.be'  # Belgium
+  - '+.bg'  # Bulgaria
+  - '+.hr'  # Croatia
+  - '+.cy'  # Cyprus
+  - '+.cz'  # Czech Republic
+  - '+.dk'  # Denmark
+  - '+.ee'  # Estonia
+  - '+.fi'  # Finland
+  - '+.fr'  # France
+  - '+.de'  # Germany
+  - '+.gr'  # Greece
+  - '+.hu'  # Hungary
+  - '+.ie'  # Ireland
+  - '+.it'  # Italy
+  - '+.lv'  # Latvia
+  - '+.lt'  # Lithuania
+  - '+.lu'  # Luxembourg
+  - '+.mt'  # Malta
+  - '+.nl'  # Netherlands
+  - '+.pl'  # Poland
+  - '+.pt'  # Portugal
+  - '+.ro'  # Romania
+  - '+.sk'  # Slovakia
+  - '+.si'  # Slovenia
+  - '+.es'  # Spain
+  - '+.se'  # Sweden
+
+  # Other European Countries
+  - '+.uk'  # United Kingdom
+  - '+.ch'  # Switzerland
+  - '+.no'  # Norway
+  - '+.is'  # Iceland
+  - '+.li'  # Liechtenstein
+  - '+.ad'  # Andorra
+  - '+.mc'  # Monaco
+  - '+.sm'  # San Marino
+  - '+.va'  # Vatican City
+  - '+.al'  # Albania
+  - '+.ba'  # Bosnia and Herzegovina
+  - '+.me'  # Montenegro
+  - '+.mk'  # North Macedonia
+  - '+.rs'  # Serbia
+  - '+.md'  # Moldova
+  - '+.ua'  # Ukraine
+  - '+.by'  # Belarus
+  - '+.gb'  # United Kingdom (legacy)
+  - '+.gi'  # Gibraltar
+  - '+.fo'  # Faroe Islands
+  - '+.gl'  # Greenland
+  - '+.ax'  # Åland Islands
+  - '+.je'  # Jersey
+  - '+.gg'  # Guernsey
+  - '+.im'  # Isle of Man
