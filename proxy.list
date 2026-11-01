@@ -14,9 +14,10 @@ DOMAIN-KEYWORD,metatrader
 DOMAIN-KEYWORD,tradovate
 DOMAIN-KEYWORD,ninjatrader
 DOMAIN-KEYWORD,tradovateapi
+
 DOMAIN-SUFFIX,vrchat.com
-DOMAIN-SUFFIX,file-variants.vrchat.cloud
 DOMAIN-SUFFIX,vrchat.cloud
+AND,((NETWORK,UDP),(DST-PORT,5055-5056))
 
 
 DOMAIN-SUFFIX,icm-cn-client-area.com
